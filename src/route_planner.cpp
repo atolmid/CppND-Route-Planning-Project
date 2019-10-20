@@ -88,8 +88,6 @@ std::vector<RouteModel::Node> RoutePlanner::ConstructFinalPath(RouteModel::Node 
     }
     distance *= m_Model.MetricScale();
     reverse(path_found.begin(), path_found.end());
-    std::cout << "path size: " << path_found.size() << std::endl;
-    std::cout << (*path_found.begin()).x << "' " <<  (*path_found.begin()).y << std::endl;
     return path_found;
 
 }
@@ -111,10 +109,6 @@ void RoutePlanner::AStarSearch() {
       current_node = NextNode();
       count ++;
     }
-  
-  if (current_node == end_node){
-    std::cout << "count: " << count << std::endl;
-  }
     std::vector<RouteModel::Node> path = ConstructFinalPath(current_node);
     this->m_Model.path = path;
 }
